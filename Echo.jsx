@@ -425,7 +425,7 @@ const [userName, setUserName] = useState(() => localStorage.getItem("echo_userna
     if (savedLog) setTrainLog(JSON.parse(savedLog));
     if (savedPacks) setUploadedPacks(JSON.parse(savedPacks));
     if (savedPass) setTrainPassword(savedPass); else localStorage.setItem("echo_pass","luminar");
-    if (savedTc) setScreen("landing");
+    if (savedTc) setScreen("tc");
     if (savedMsgs) setMessages(JSON.parse(savedMsgs));
     if (savedMems) setMemories(JSON.parse(savedMems));
     if (savedOrbColor) setOrbColorIndex(parseInt(savedOrbColor));
@@ -655,7 +655,7 @@ const gstyle = `@import url('https://fonts.googleapis.com/css2?family=Playfair+D
           <p><strong>Do not train {aiName} with harmful, biased, hateful, or misleading content.</strong> {aiName} is designed to be kind — please keep her that way.</p><br />
           <p>Luminar Inc reserves the right to update {aiName} at any time. By using {aiName} you agree to use her responsibly.</p>
         </div>
-        <button onClick={() => { localStorage.setItem("echo_tc","1"); setScreen("landing"); }} style={{ width:"100%", padding:"14px 0", borderRadius:30, background:"linear-gradient(135deg,#e8a0b4,#d4a856,#c4a8d4)", border:"none", color:"white", fontSize:15, ...playfair, cursor:"pointer", boxShadow:"0 4px 20px #e8a0b444" }}>
+        <button onClick={() => { localStorage.setItem("echo_tc","1"); setScreen("tc"); }} style={{ width:"100%", padding:"14px 0", borderRadius:30, background:"linear-gradient(135deg,#e8a0b4,#d4a856,#c4a8d4)", border:"none", color:"white", fontSize:15, ...playfair, cursor:"pointer", boxShadow:"0 4px 20px #e8a0b444" }}>
           I Agree — Meet {aiName}
         </button>
         <p style={{ textAlign:"center", fontSize:10, color:"#c4c4c4", marginTop:12, letterSpacing:2 }}>{aiName.toUpperCase()} BY LUMINAR INC</p>
@@ -700,7 +700,7 @@ const gstyle = `@import url('https://fonts.googleapis.com/css2?family=Playfair+D
           <div style={{ ...playfair, fontSize:16, color:"#3d2c1e", fontWeight:700 }}>{aiName}</div>
           <div style={{ fontSize:10, color:"#9a7e6a" }}>{mode} mode · {emotion !== "neutral" ? emotion : "listening"} {MOOD_EMOJIS[mood]}</div>
         </div>
-        <button onClick={() => setTtsEnabled(v => !v)} style={{ background:"none", border:"none", cursor:"pointer", padding:6 }}><SpeakerIcon muted={!ttsEnabled} /></button>
+        <button onClick={() => setTtsEnabled(prev => !prev)} style={{ background:"none", border:"none", cursor:"pointer", padding:6 }}><SpeakerIcon muted={!ttsEnabled} /></button>
         <button onClick={() => setScreen("settings")} style={{ background:"none", border:"none", cursor:"pointer", padding:6 }}><SettingsIcon size={18} /></button>
       </div>
       <div style={{ padding:"8px 14px", background:"rgba(253,246,238,0.95)", borderBottom:"1px solid #f0e4d4", display:"flex", gap:6 }}>
@@ -816,7 +816,7 @@ borderRadius:10, padding:"2px 8px", cursor: likedMsgIds.has(i) ? "default" : "po
           <div style={{ fontSize:13, color:"#3d2c1e", fontWeight:"bold" }}>Voice (TTS)</div>
           <div style={{ fontSize:11, color:"#9a7e6a" }}>{aiName} speaks her responses</div>
         </div>
-        <button onClick={() => setTtsEnabled(v => !v)} style={{ padding:"8px 16px", borderRadius:12, border:`1.5px solid ${ttsEnabled?"#e8a0b4":"#f0e4d4"}`, background:ttsEnabled?"#e8a0b418":"white", color:ttsEnabled?"#e8a0b4":"#9a7e6a", fontSize:12, cursor:"pointer" }}>{ttsEnabled?"On":"Off"}</button>
+        <button onClick={() => setTtsEnabled(prev => !prev)} style={{ padding:"8px 16px", borderRadius:12, border:`1.5px solid ${ttsEnabled?"#e8a0b4":"#f0e4d4"}`, background:ttsEnabled?"#e8a0b418":"white", color:ttsEnabled?"#e8a0b4":"#9a7e6a", fontSize:12, cursor:"pointer" }}>{ttsEnabled?"On":"Off"}</button>
       </div>
 
       {/* SELF LEARNING STATS */}
@@ -912,7 +912,7 @@ borderRadius:10, padding:"2px 8px", cursor: likedMsgIds.has(i) ? "default" : "po
           <div style={{ padding: "20px 20px 10px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div onClick={() => setScreen("settings")} style={{ cursor: "pointer", padding: 5 }}><SettingsIcon /></div>
             <div style={{ fontWeight: "bold", color: "#3d2c1e", fontSize: 18 }}>{aiName}</div>
-            <div onClick={() => setTtsEnabled(!ttsEnabled)} style={{ cursor: "pointer", padding: 5 }}><SpeakerIcon muted={!ttsEnabled} /></div>
+            <div onClick={() => setTtsEnabled(prev => !prev)} style={{ cursor: "pointer", padding: 5 }}><SpeakerIcon muted={!ttsEnabled} /></div>
           </div>
 
           <div style={{ flex: 1, overflowY: "auto"", padding: "0 20px" }}>
