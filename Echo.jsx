@@ -898,7 +898,7 @@ borderRadius:10, padding:"2px 8px", cursor: likedMsgIds.has(i) ? "default" : "po
         )}
       </div>
     // ─── FINAL RENDER FIX ───────────────────────────────────────
-        return (
+          return (
     <div style={{ height: "100vh", background: "#fffaf6", overflow: "hidden", position: "relative" }}>
       
       {/* 1. LANDING/TC SCREEN */}
