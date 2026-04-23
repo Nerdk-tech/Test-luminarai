@@ -915,7 +915,7 @@ borderRadius:10, padding:"2px 8px", cursor: likedMsgIds.has(i) ? "default" : "po
             <div onClick={() => setTtsEnabled(!ttsEnabled)} style={{ cursor: "pointer", padding: 5 }}><SpeakerIcon muted={!ttsEnabled} /></div>
           </div>
 
-          <div style={{ flex: 1, overflowY: "auto", padding: "0 20px" }}>
+          <div style={{ flex: 1, overflowY: "auto"", padding: "0 20px" }}>
             <Orb colors={colors} state={orbState} emotion={emotion} />
             {messages.map((m, i) => (
               <div key={m.id || i} style={{ marginBottom: 15, textAlign: m.from === "user" ? "right" : "left" }}>
@@ -959,7 +959,7 @@ borderRadius:10, padding:"2px 8px", cursor: likedMsgIds.has(i) ? "default" : "po
 
       {/* 3. SETTINGS SCREEN */}
       {screen === "settings" && (
-        <div style={{ height: "100%", overflowY: "auto", background: "#fffaf6", position: "absolute", top: 0, left: 0, width: "100%", zIndex: 10, padding: "20px" }}>
+        <div style={{ height: "100%", overflowY: "auto"", background: "#fffaf6", position: "absolute", top: 0, left: 0, width: "100%", zIndex: 10, padding: "20px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 15, marginBottom: 20 }}>
             <div onClick={() => setScreen("chat")} style={{ cursor: "pointer" }}><BackIcon /></div>
             <h2 style={{ margin: 0, fontSize: 20 }}>Settings</h2>
