@@ -898,7 +898,7 @@ borderRadius:10, padding:"2px 8px", cursor: likedMsgIds.has(i) ? "default" : "po
         )}
       </div>
     // ─── FINAL RENDER FIX ───────────────────────────────────────
-    return (
+      return (
     <div style={{ height: "100vh", background: "#fffaf6", overflow: "hidden", position: "relative" }}>
       
       {/* 1. LANDING/TC SCREEN */}
@@ -909,14 +909,12 @@ borderRadius:10, padding:"2px 8px", cursor: likedMsgIds.has(i) ? "default" : "po
       {/* 2. MAIN CHAT SCREEN */}
       {screen === "chat" && (
         <div style={{ display: "flex", flexDirection: "column", height: "100%" }}>
-          {/* Header */}
           <div style={{ padding: "20px 20px 10px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
             <div onClick={() => setScreen("settings")} style={{ cursor: "pointer", padding: 5 }}><SettingsIcon /></div>
             <div style={{ fontWeight: "bold", color: "#3d2c1e", fontSize: 18 }}>{aiName}</div>
             <div onClick={() => setTtsEnabled(!ttsEnabled)} style={{ cursor: "pointer", padding: 5 }}><SpeakerIcon muted={!ttsEnabled} /></div>
           </div>
 
-          {/* Messages Area */}
           <div style={{ flex: 1, overflowY: "auto", padding: "0 20px" }}>
             <Orb colors={colors} state={orbState} emotion={emotion} />
             {messages.map((m, i) => (
@@ -946,7 +944,6 @@ borderRadius:10, padding:"2px 8px", cursor: likedMsgIds.has(i) ? "default" : "po
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input Bar */}
           <div style={{ padding: 20, display: "flex", gap: 10, background: "#fff" }}>
             <input 
               value={input} 
@@ -960,7 +957,7 @@ borderRadius:10, padding:"2px 8px", cursor: likedMsgIds.has(i) ? "default" : "po
         </div>
       )}
 
-      {/* 3. SETTINGS SCREEN (Everything inside one block) */}
+      {/* 3. SETTINGS SCREEN */}
       {screen === "settings" && (
         <div style={{ height: "100%", overflowY: "auto", background: "#fffaf6", position: "absolute", top: 0, left: 0, width: "100%", zIndex: 10, padding: "20px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: 15, marginBottom: 20 }}>
@@ -1012,6 +1009,6 @@ borderRadius:10, padding:"2px 8px", cursor: likedMsgIds.has(i) ? "default" : "po
       )}
     </div>
   );
-}
+};
 
 export default EchoApp;
